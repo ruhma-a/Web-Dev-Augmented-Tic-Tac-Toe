@@ -6,6 +6,8 @@ body {
   font-family: sans-serif;
   margin: 20px;
   padding: 0;
+  background-color: #e6e0eb;
+  color: #291529; 
 }
 
 h1 {
@@ -57,8 +59,8 @@ body {
 }
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
+  background: #c8a2c8; /* Standard soft lilac */
+  border: 1px solid #7b5c7b; /* Darker muted border */
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -69,6 +71,7 @@ body {
   padding: 0;
   text-align: center;
   width: 34px;
+  color: #291529;
 }
 
 .board-row:after {
@@ -87,4 +90,13 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.winning-square {
+  background-color: #987398; /* A deeper, dusky lilac to indicate the win without being bright */
+  color: #140a14;
+}
+
+.game-info button {
+  margin-bottom: 10px;
 }
