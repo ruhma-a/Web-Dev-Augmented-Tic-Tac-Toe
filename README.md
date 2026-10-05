@@ -1,6 +1,6 @@
 # ✨ Relax with Tic Tac Toe ✨
 
-**🎮 Play the live game here: [https://ruhma-a.github.io/Web-Dev-Augmented-Tic-Tac-Toe/]**
+**🎮 Play the live game here: https://ruhma-a.github.io/Web-Dev-Augmented-Tic-Tac-Toe/**
 
 Created for **Assignment 3** of my Web Development course, this is a cozy, cottagecore-inspired take on the classic React Tic-Tac-Toe tutorial. This project transforms a basic grid into a whimsical, digital scrapbook page complete with a dotted-grid background, floral imagery, typewriter fonts, and relaxing background sounds. 
 
