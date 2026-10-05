@@ -120,7 +120,7 @@ export default function Game() {
                     <p className="audio-label">🌿 Relaxing Garden Sounds 🌿</p>
                     <iframe 
                         width="250" 
-                        height="80" 
+                        height="140" 
                         src="https://www.youtube.com/embed/UZ9uyQI3pF0" 
                         title="Relaxing Sounds" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
