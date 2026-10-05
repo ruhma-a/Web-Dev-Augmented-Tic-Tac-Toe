@@ -117,10 +117,15 @@ export default function Game() {
                 <h1 className="site-title">✨ Relax with Tic Tac Toe ✨</h1>
                 
                 <div className="cute-audio-player">
-                    <p className="audio-label">🌿 Relaxing Sounds 🌿</p>
-                    <audio controls loop>
-                        <source src="https://pixabay.com/sound-effects/film-special-effects-nature-forest-sound-537925/" type="audio/mpeg" />
-                    </audio>
+                    <p className="audio-label">🌿 Relaxing Garden Sounds 🌿</p>
+                    <iframe 
+                        width="250" 
+                        height="80" 
+                        src="https://www.youtube.com/embed/UZ9uyQI3pF0" 
+                        title="Relaxing Sounds" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        style={{ border: "2px dashed #937b9e", borderRadius: "10px" }}>
+                    </iframe>
                 </div>
 
                 <div className="game">
