@@ -114,7 +114,7 @@ export default function Game() {
             </div>
 
             <div className="game-wrapper">
-                <h1 className="site-title">✨ My Little Garden Game ✨</h1>
+                <h1 className="site-title">✨ Relax with Tic Tac Toe ✨</h1>
                 <div className="game">
                     <div className="game-board">
                         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
@@ -129,7 +129,7 @@ export default function Game() {
             </div>
 
             <div className="pretty-sidebar right">
-                <img src="https://www.pinterest.com/pin/1016195103409356455/" alt="cutie lilac bows" className="cute-photo" />
+                <img src="https://i.pinimg.com/originals/30/49/c6/3049c6010a2f4178a4e91428996aa870.png" alt="cutie lilac bows" className="cute-photo" />
                 <img src="https://i.pinimg.com/736x/1d/e7/57/1de75741f259810db2f3a051dd12e6f4.jpg" alt="Purple kitty" className="cute-photo" />
             </div>
         </div>
