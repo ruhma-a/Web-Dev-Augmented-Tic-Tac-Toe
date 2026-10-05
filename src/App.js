@@ -115,7 +115,7 @@ export default function Game() {
 
             <div className="game-wrapper">
                 <h1 className="site-title">✨ Relax with Tic Tac Toe ✨</h1>
-                
+                    
                 <div className="cute-audio-player">
                     <p className="audio-label">🌿 Relaxing Garden Sounds 🌿</p>
                     <iframe 
