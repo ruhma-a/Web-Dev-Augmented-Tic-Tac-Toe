@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// Added isWinningSquare prop to highlight winning cells
 function Square({ value, onSquareClick, isWinningSquare }) {
     return (
         <button 
@@ -23,7 +22,6 @@ function Board({ xIsNext, squares, onPlay }) {
         } else {
             nextSquares[i] = "O";
         }
-        // Pass the index `i` along with nextSquares so we can track the row/col location
         onPlay(nextSquares, i);
     }
 
@@ -35,12 +33,11 @@ function Board({ xIsNext, squares, onPlay }) {
     if (winner) {
         status = "Winner: " + winner;
     } else if (!squares.includes(null)) {
-        status = "Draw!"; // Draw condition
+        status = "Draw!"; 
     } else {
         status = "Next Player: " + (xIsNext ? "X" : "O");
     }
 
-    // Rewrite Board to use two loops to make the squares
     const boardSize = 3;
     let boardRows = [];
     for (let row = 0; row < boardSize; row++) {
@@ -62,22 +59,22 @@ function Board({ xIsNext, squares, onPlay }) {
     return (
         <>
             <div className="status">{status}</div>
-            {boardRows}
+            <div className="board-container">
+                {boardRows}
+            </div>
         </>
     );
 }
 
 export default function Game() {
-    // History now stores an object containing the board array AND the location of the move
     const [history, setHistory] = useState([{ squares: Array(9).fill(null), location: null }]);
     const [currentMove, setCurrentMove] = useState(0);
-    const [isAscending, setIsAscending] = useState(true); // Toggle sort state
+    const [isAscending, setIsAscending] = useState(true);
 
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove].squares;
 
     function handlePlay(nextSquares, moveLocation) {
-        // Immutability: Using spread and slice to copy arrays instead of mutating
         const nextHistory = [...history.slice(0, currentMove + 1), { squares: nextSquares, location: moveLocation }];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1);
@@ -90,7 +87,6 @@ export default function Game() {
     const moves = history.map((step, move) => {
         let description;
         if (move > 0) {
-            // Calculate row and col (1-indexed for better readability)
             const row = Math.floor(step.location / 3) + 1;
             const col = (step.location % 3) + 1;
             description = `Go to move #${move} (row: ${row}, col: ${col})`;
@@ -98,37 +94,48 @@ export default function Game() {
             description = 'Go to game start';
         }
 
-        // Show text instead of button for the current move
         if (move === currentMove) {
-            return <li key={move}>You are at move #{move}</li>;
+            return <li key={move} className="current-move">You are at move #{move}</li>;
         }
 
         return (
             <li key={move}>
-                <button onClick={() => jumpTo(move)}>{description}</button>
+                <button className="history-btn" onClick={() => jumpTo(move)}>{description}</button>
             </li>
         );
     });
 
-    // Create a copy of the array before reversing it to maintain immutability 
     const displayedMoves = isAscending ? moves : [...moves].reverse();
 
     return (
-        <div className="game">
-            <div className="game-board">
-                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <div className="page-container">
+            <div className="pretty-sidebar left">
+                <img src="https://i.pinimg.com/736x/df/e1/fe/dfe1fe83a796c6d056b2976ba9c48d75.jpg" alt="Floral purple" className="cute-photo" />
             </div>
-            <div className="game-info">
-                <button onClick={() => setIsAscending(!isAscending)}>
-                    Sort: {isAscending ? "Ascending" : "Descending"}
-                </button>
-                <ol>{displayedMoves}</ol>
+
+            <div className="game-wrapper">
+                <h1 className="site-title">✨ My Little Garden Game ✨</h1>
+                <div className="game">
+                    <div className="game-board">
+                        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+                    </div>
+                    <div className="game-info">
+                        <button className="toggle-btn" onClick={() => setIsAscending(!isAscending)}>
+                            Sort: {isAscending ? "Ascending 🌿" : "Descending 🍂"}
+                        </button>
+                        <ol>{displayedMoves}</ol>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pretty-sidebar right">
+                <img src="https://www.pinterest.com/pin/1016195103409356455/" alt="cutie lilac bows" className="cute-photo" />
+                <img src="https://i.pinimg.com/736x/1d/e7/57/1de75741f259810db2f3a051dd12e6f4.jpg" alt="Purple kitty" className="cute-photo" />
             </div>
         </div>
     );
 }
 
-// Updated to return an object with both the winner and the winning line array
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],
