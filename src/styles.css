@@ -137,3 +137,27 @@ button:hover {
 .pretty-sidebar.right .cute-photo:last-child {
   transform: rotate(-2deg);
 }
+
+// audio player styles attempt
+.cute-audio-player {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #e9e3cd; /* Matches the earthy squares */
+  border: 2px dashed #937b9e;
+  border-radius: 15px;
+}
+
+.audio-label {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #5d3f6a;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+audio {
+  height: 35px;
+  outline: none;
+}

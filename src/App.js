@@ -115,6 +115,14 @@ export default function Game() {
 
             <div className="game-wrapper">
                 <h1 className="site-title">✨ Relax with Tic Tac Toe ✨</h1>
+                
+                <div className="cute-audio-player">
+                    <p className="audio-label">🌿 Relaxing Sounds 🌿</p>
+                    <audio controls loop>
+                        <source src="https://pixabay.com/sound-effects/film-special-effects-nature-forest-sound-537925/" type="audio/mpeg" />
+                    </audio>
+                </div>
+
                 <div className="game">
                     <div className="game-board">
                         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
